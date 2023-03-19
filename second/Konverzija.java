@@ -1,4 +1,4 @@
-package drugo;
+package second;
 import java.util.Scanner;
 import java.io.*;
 
@@ -28,7 +28,7 @@ public class Konverzija {
             }     
         }
         else {
-            File txt = new File("drugo/konverzijski_faktor.txt");
+            File txt = new File("second/konverzijski_faktor.txt");
 
             FileWriter writer = new FileWriter(txt);
             writer.write("Konverzijski faktor = " + faktor);
