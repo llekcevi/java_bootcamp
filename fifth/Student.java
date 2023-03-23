@@ -1,28 +1,18 @@
 package fifth;
 
-public class Student {
-    private String ime;
-    private String prezime;
+public class Student extends Osoba{
+    
     private int godinaStudija;
     private String brojIndexa;
 
     // - constructor -
     public Student(String ime, String prezime, int godinaStudija, String brojIndexa) {
-        this.ime = ime;
-        this.prezime = prezime;
+        super(ime, prezime);
         this.godinaStudija = godinaStudija;
         this.brojIndexa = brojIndexa;
     }
 
     // - getters -
-    public String getIme() {
-        return ime;
-    }
-
-    public String getPrezime() {
-        return prezime;
-    }
-
     public int getGodinaStudija() {
         return godinaStudija;
     }
@@ -32,14 +22,6 @@ public class Student {
     }
 
     // - setters -
-    public void setIme(String ime) {
-        this.ime = ime;
-    }
-
-    public void setPrezime(String prezime) {
-        this.prezime = prezime;
-    }
-
     public void setGodinaStudija(int godinaStudija) {
         this.godinaStudija = godinaStudija;
     }
