@@ -14,7 +14,10 @@ public class Employee {
         this.hourlyRate = hourlyRate;
         this.hoursWorked = hoursWorked;
     }
-
+    /**
+     * Funkcija za izračun iznosa plaće.
+     * @return Funkcija vraća umnožak broja radnih sati i iznosa satnice.
+     */
     public int getPayroll(){
         return hourlyRate*hoursWorked;
     }
@@ -46,7 +49,7 @@ public class Employee {
     public void setHoursWorked(int hoursWorked){
         this.hoursWorked = hoursWorked;
     }
-
+    
     public int getHoursWorked(){
         return hoursWorked;
     }
