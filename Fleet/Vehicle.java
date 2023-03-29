@@ -1,16 +1,43 @@
 package Fleet;
-
 /**
- * Apstraktna klasa koja sadrži dijeljene podatke za različite vrste vozila
+ * Abstract class that represents all vehicles.
+ * 
  */
-public abstract class Vehicle {
-    private String make;
-    private String model;
-    private int year;
-    private String color;
-    private int VIN;
-    private String fuelType;
 
+public abstract class Vehicle {
+    /**
+     * Manufacturer of the vehicle
+     */
+    private String make;
+    /**
+     * Model name
+     */
+    private String model;
+    /**
+     * Year of manufacture
+     */
+    private int year;
+    /**
+     * Color of the vehicle
+     */
+    private String color;
+    /**
+     * Vehicle Identification Number
+     */
+    private int VIN;
+    /**
+     * Fuel type
+     */
+    private String fuelType;
+    /**
+     * Constructs a Vehicle object with specified parameters.
+     * @param make Manufacturer of the vehicle
+     * @param model Model name
+     * @param year Year of manufacture
+     * @param color Color of the vehicle
+     * @param VIN Vehicle Identification Number
+     * @param fuelType Fuel type
+     */
     public Vehicle(String make, String model, int year, String color, int VIN, String fuelType) {
         this.make = make;
         this.model = model;
