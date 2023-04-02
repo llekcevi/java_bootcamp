@@ -23,7 +23,7 @@ public class Truck extends Vehicle {
      * @param fuelType
      * @param loadCapacity Load capacity in kilograms
      */
-    public Truck(String make, String model, int year, String color, int VIN, String fuelType, double loadCapacity) {
+    public Truck(String make, String model, int year, String color, String VIN, String fuelType, double loadCapacity) {
         super(make, model, year, color, VIN, fuelType);
         this.loadCapacity = loadCapacity;
     }
