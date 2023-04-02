@@ -27,7 +27,7 @@ public class Car extends Vehicle {
      * @param numberOfDoors Number of doors
      * @param bodyType      Body type
      */
-    public Car(String make, String model, int year, String color, int VIN, String fuelType, int numberOfDoors,
+    public Car(String make, String model, int year, String color, String VIN, String fuelType, int numberOfDoors,
             String bodyType) {
         super(make, model, year, color, VIN, fuelType);
         this.numberOfDoors = numberOfDoors;
