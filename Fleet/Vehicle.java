@@ -24,7 +24,7 @@ public abstract class Vehicle {
     /**
      * Vehicle Identification Number
      */
-    private int VIN;
+    private String VIN;
     /**
      * Fuel type
      */
@@ -38,7 +38,7 @@ public abstract class Vehicle {
      * @param VIN Vehicle Identification Number
      * @param fuelType Fuel type
      */
-    public Vehicle(String make, String model, int year, String color, int VIN, String fuelType) {
+    public Vehicle(String make, String model, int year, String color, String VIN, String fuelType) {
         this.make = make;
         this.model = model;
         this.year = year;
@@ -79,11 +79,11 @@ public abstract class Vehicle {
         this.color = color;
     }
 
-    public int getVIN() {
+    public String getVIN() {
         return VIN;
     }
 
-    public void setVIN(int vin) {
+    public void setVIN(String vin) {
         this.VIN = vin;
     }
 
