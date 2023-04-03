@@ -1,14 +1,24 @@
 package Fleet;
 
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
+
 /**
  * Retresents menu where users can choose different actions
  */
 public class Menu {
     /**
-     * Boolean that keeps the main loop running until user chooses to exit the program.
+     * Boolean that keeps the main loop running until user chooses to exit the
+     * program.
      */
     public boolean isTerminated;
+    /**
+     * Logger object
+     */
+    public Logger LOGGER;
     /**
      * Scans user input
      */
@@ -18,23 +28,37 @@ public class Menu {
      * 
      */
     public VehicleManager manager;
+
     /**
      * Constructs the menu object
      */
     public Menu() {
         scanner = new Scanner(System.in);
         manager = new VehicleManagerImpl();
+        LOGGER = Logger.getLogger(Menu.class.getName());
+        try {
+            FileHandler fileHandler = new FileHandler("log.txt");
+            LOGGER.addHandler(fileHandler);
+            SimpleFormatter formatter = new SimpleFormatter();
+            fileHandler.setFormatter(formatter);
+
+        } catch (IOException e) {
+            LOGGER.warning("Could not create log file: " + e.getMessage());
+            System.out.println("Could not create log file: " + e.getMessage());
+        }
         isTerminated = false;
     };
+
     /**
      * Runs the main menu loop.
      */
     public void run() {
         while (!isTerminated) {
             showActions();
-            chooseAction();    
+            chooseAction();
         }
     }
+
     /**
      * Shows the main menu actions.
      */
@@ -49,6 +73,7 @@ public class Menu {
         System.out.println("5. Quit");
         System.out.println("");
     }
+
     /**
      * Enables users to choose an action from main menu.
      */
@@ -62,6 +87,7 @@ public class Menu {
                 scanner.nextLine();
                 String type = scanner.nextLine();
                 System.out.println("type: " + type);
+
                 System.out.println("Enter make:");
                 String make = scanner.nextLine();
 
@@ -93,9 +119,10 @@ public class Menu {
                     try {
                         manager.addVehicle(car);
                     } catch (DuplicateVehicleException e) {
+                        LOGGER.warning("Greška: " + e.getMessage());
                         System.out.println("Greška: " + e.getMessage());
                     }
-            
+
                 } else if (type.equals("truck")) {
                     System.out.println("Enter load capacity:");
                     double loadCapacity = scanner.nextDouble();
@@ -103,10 +130,11 @@ public class Menu {
                     Truck truck = new Truck(make, model, year, color, VIN, fuelType, loadCapacity);
                     try {
                         manager.addVehicle(truck);
-                    } catch (Exception e) {
+                    } catch (DuplicateVehicleException e) {
+                        LOGGER.warning("Greška: " + e.getMessage());
                         System.out.println("Greška: " + e.getMessage());
                     }
-                }
+                } 
                 break;
             case 2:
                 manager.searchVehicle(scanner);
@@ -121,6 +149,7 @@ public class Menu {
                 try {
                     manager.deleteVehicle(VIN_delete);
                 } catch (NoSuchVehicleException e) {
+                    LOGGER.warning("Greška: " + e.getMessage());
                     System.out.println("Greška: " + e.getMessage());
                 }
                 break;
