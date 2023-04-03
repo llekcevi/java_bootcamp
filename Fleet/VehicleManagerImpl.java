@@ -20,11 +20,17 @@ public class VehicleManagerImpl implements VehicleManager {
     public VehicleManagerImpl() {
         fleet = new ArrayList<Vehicle>();
     }
-
+    /**
+     * Gets fleet.
+     * @return All vehicles in the fleet.
+     */
     public ArrayList<Vehicle> getFleet() {
         return fleet;
     }
-
+    /**
+     * Sets fleet.
+     * @param fleet A list of vehicles.
+     */
     public void setFleet(ArrayList<Vehicle> fleet) {
         this.fleet = fleet;
     }

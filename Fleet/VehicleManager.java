@@ -13,8 +13,11 @@ public interface VehicleManager {
      * @throws DuplicateVehicleException Throws exception if vehicle's VIN number already exists in the fleet. 
      */
     void addVehicle(Vehicle vehicle) throws DuplicateVehicleException;
-    
-    // add javadoc
+
+    /**
+     * Search vehicles by make, model or VIM
+     * @param scanner Scans user input.
+     */
     void searchVehicle(Scanner scanner);
 
     /**
